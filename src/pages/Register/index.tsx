@@ -32,14 +32,16 @@ import logoImg from '../../assets/logo.png';
 import minorIncomingImg from '../../assets/minor_incoming.png';
 import minorOutgoingImg from '../../assets/minor_outgoing.png';
 
+import api from '../../services/api';
+
 enum Types {
-  Incoming,
-  Outgoing,
+  Incoming = 'Incoming',
+  Outgoing = 'Outgoing',
 }
 
 interface IForm {
   description: string;
-  price: string;
+  price: number;
   type?: Types;
   category: string;
 }
@@ -53,8 +55,22 @@ const Register: React.FC = () => {
   const currentDate = () =>
     format(new Date(), "dd 'de' MMMM", { locale: ptBR });
 
-  const onSubmit = (data: IForm) => {
-    Alert.alert(JSON.stringify(data));
+  const onSubmit = async (data: IForm) => {
+    const body = {
+      description: data.description,
+      price: Number(data.price),
+      type: selectedType,
+      category: data.type,
+    };
+    try {
+      const response = await api.post('/transactions', body);
+
+      if (response.status === 201) {
+        Alert.alert('Sucesso!', 'Transação registrada com sucesso.');
+      }
+    } catch (error) {
+      Alert.alert(JSON.stringify(error));
+    }
   };
 
   const handleSelectType = (type: Types) => {

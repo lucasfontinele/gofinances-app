@@ -23,6 +23,8 @@
     "react-native-reanimated": "^1.8.0",
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.7.0",
+    "react-native-skeleton-loader-pulse": "^1.0.6",
+    "react-native-vector-icons": "^6.6.0",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {

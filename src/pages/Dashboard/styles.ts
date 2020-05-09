@@ -4,7 +4,7 @@ interface IListTitle {
   register?: boolean;
 }
 
-export const Container = styled.ScrollView`
+export const ScrollView = styled.ScrollView`
   background: #f0f2f5;
 `;
 
@@ -33,12 +33,7 @@ export const ScrollCards = styled.ScrollView`
   margin: 0 0 -45px 0;
 `;
 
-export const ListContainer = styled.View`
-  flex: 1;
-  margin-top: 85px;
-
-  padding: 0 25px;
-`;
+export const ListContainer = styled.View``;
 
 export const ListTitle = styled.Text<IListTitle>`
   font-family: 'Poppins-Regular';
@@ -54,12 +49,11 @@ export const ListTitle = styled.Text<IListTitle>`
   `}
 `;
 
-export const ListWrapper = styled.View`
-  margin-top: 24px;
-`;
-
 export const ListHeaderContainer = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+
+  margin-top: 85px;
+  padding: 0 25px;
 `;

@@ -1,4 +1,8 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native';
+
+interface IAmount {
+  type: string;
+}
 
 export const Container = styled.View`
   height: 130px;
@@ -6,7 +10,7 @@ export const Container = styled.View`
   border-radius: 5px;
 
   padding: 20px 24px;
-  margin: 15px 0;
+  margin: 15px 24px;
 
   justify-content: space-between;
 `;
@@ -20,20 +24,20 @@ export const Wrapper = styled.View`
 `;
 
 export const Description = styled.Text`
-  font-family: "Poppins-Regular";
+  font-family: 'Poppins-Regular';
   font-size: 14px;
   line-height: 21px;
   color: #363f5f;
 `;
 
-export const Amount = styled.Text`
+export const Amount = styled.Text<IAmount>`
   font-size: 20px;
   line-height: 30px;
-  color: #12a454;
+  color: ${(props) => (props.type === 'Outgoing' ? '#E83F5B' : '#12a454')};
 `;
 
 export const InfoText = styled.Text`
-  font-family: "Poppins-Regular";
+  font-family: 'Poppins-Regular';
   font-size: 14px;
   line-height: 21px;
   color: #969cb3;
